@@ -1,71 +1,37 @@
-document.documentElement.classList.add("js");
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('.nav');
 
-const header = document.querySelector(".site-header");
-const themeToggle = document.querySelector(".theme-toggle");
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav");
+if (menuButton && navigation) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+  });
 
-const storedTheme = localStorage.getItem("resume-theme");
-if (storedTheme === "dark" || storedTheme === "light") {
-  document.documentElement.dataset.theme = storedTheme;
+  navigation.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    });
+  });
 }
 
-const currentTheme = () =>
-  document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealItems = document.querySelectorAll('.reveal');
 
-const updateThemeLabel = () => {
-  if (!themeToggle) return;
-  const next = currentTheme() === "dark" ? "светлую" : "тёмную";
-  themeToggle.setAttribute("aria-label", `Включить ${next} тему`);
-  themeToggle.setAttribute("title", `Включить ${next} тему`);
-};
-
-themeToggle?.addEventListener("click", () => {
-  const next = currentTheme() === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next;
-  localStorage.setItem("resume-theme", next);
-  updateThemeLabel();
-});
-
-updateThemeLabel();
-
-const updateHeader = () => {
-  header?.classList.toggle("is-scrolled", window.scrollY > 12);
-};
-
-updateHeader();
-window.addEventListener("scroll", updateHeader, { passive: true });
-
-const setMenu = (open) => {
-  nav?.classList.toggle("is-open", open);
-  menuToggle?.setAttribute("aria-expanded", String(open));
-};
-
-menuToggle?.addEventListener("click", () => {
-  setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
-});
-
-nav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => setMenu(false));
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") setMenu(false);
-});
-
-const revealItems = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: "0px 0px -8%", threshold: 0.08 },
-  );
-  revealItems.forEach((item) => observer.observe(item));
+if (reducedMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('visible'));
 } else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px' });
+
+  revealItems.forEach((item) => observer.observe(item));
 }
+
+const year = document.querySelector('#year');
+if (year) year.textContent = String(new Date().getFullYear());
