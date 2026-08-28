@@ -115,11 +115,11 @@ img { max-width: 100%; }
 .section-label { position: relative; z-index: 1; width: fit-content; display: grid; grid-template-columns: 34px auto; align-items: center; gap: 10px; padding: 7px 13px; border: 1px solid var(--bg); background: var(--bg); color: var(--cream); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
 .section-label span { color: var(--cream); }
 .section-label p { margin: 0; }
-.manifesto-body { position: relative; z-index: 1; margin-top: 60px; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, .65fr); gap: clamp(50px, 8vw, 130px); }
+.manifesto-body { position: relative; z-index: 1; margin-top: 60px; display: block; }
 .manifesto-lead { margin: 0; font-size: clamp(38px, 5.1vw, 76px); font-weight: 900; line-height: 1.02; letter-spacing: -.05em; text-transform: uppercase; }
 .manifesto-lead em { color: transparent; -webkit-text-stroke: 1px var(--bg); font-style: normal; }
-.manifesto-note { align-self: end; padding: 26px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--muted); font-size: 16px; }
-.manifesto-note p { margin: 0 0 18px; }
+.manifesto-note { width: 100%; padding: clamp(34px, 5vw, 72px); border: 1px solid var(--bg); background: var(--bg); color: var(--cream); font-size: clamp(24px, 3vw, 46px); font-weight: 700; line-height: 1.22; letter-spacing: -.025em; }
+.manifesto-note p { max-width: 1240px; margin: 0 0 clamp(28px, 4vw, 54px); }
 .manifesto-note p:last-child { margin-bottom: 0; }
 
 .section-head { position: relative; z-index: 1; display: grid; grid-template-columns: 190px 1fr; gap: 34px; align-items: start; margin-bottom: 70px; }
