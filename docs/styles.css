@@ -265,6 +265,9 @@ img { max-width: 100%; }
 .metric-list .metric-winner span, .metric-list .metric-winner strong, .metric-list .metric-winner b { color: var(--bg); }
 
 .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 18px; border: 0; background: var(--bg); }
+.problem-grid-four { grid-template-columns: repeat(2, 1fr); }
+.problem-grid-four article:nth-child(odd) { border-left: 0; }
+.problem-grid-four article:nth-child(n+3) { border-top: 1px solid var(--line-strong); }
 .problem-grid article { min-height: 250px; padding: 34px; position: relative; }
 .problem-grid article + article { border-left: 1px solid var(--line-strong); }
 .problem-grid article::after { display: none; }
