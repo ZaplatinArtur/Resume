@@ -59,27 +59,6 @@ img { max-width: 100%; }
 .menu-toggle { display: none; z-index: 1; width: 42px; height: 42px; padding: 10px; border: 1px solid var(--cream); background: transparent; }
 .menu-toggle span { display: block; height: 1px; margin: 5px 0; background: var(--cream); }
 
-.scroll-index {
-  position: fixed;
-  z-index: 30;
-  top: 50%;
-  right: 14px;
-  width: 44px;
-  padding: 11px 7px 12px;
-  display: grid;
-  justify-items: center;
-  gap: 8px;
-  border: 1px solid var(--cream);
-  background: var(--bg);
-  color: var(--cream);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: .08em;
-  transform: translateY(-50%);
-}
-.scroll-index i { width: 1px; height: 28px; background: rgba(255,255,255,.45); }
-.scroll-index b { margin-top: 4px; font-size: 7px; letter-spacing: .12em; line-height: 1; writing-mode: vertical-rl; transform: rotate(180deg); }
-
 .hero, .section, .manifesto { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 .hero {
   min-height: calc(100vh - 106px);
@@ -348,7 +327,6 @@ tbody tr:not(.best-row):hover { background: #30302d; }
 }
 
 @media (max-width: 820px) {
-  .scroll-index { display: none; }
   .site-header { grid-template-columns: 1fr auto; padding: 0 18px; }
   .header-link, .header-cta { display: none; }
   .menu-toggle { display: block; }
