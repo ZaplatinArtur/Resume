@@ -302,11 +302,11 @@ tbody tr:not(.best-row):hover { background: #30302d; }
 .education-main > span { z-index: 1; font-size: 9px; font-weight: 900; letter-spacing: .13em; }
 .education-main h3 { z-index: 1; margin: auto 0 24px; font-size: clamp(40px, 4.8vw, 70px); font-weight: 900; line-height: .92; letter-spacing: -.05em; text-transform: uppercase; }
 .education-main p { z-index: 1; margin: 0; padding-top: 16px; border-top: 1px solid var(--cream); font-size: 15px; }
-.education-layout ol { margin: 0; padding: 10px; list-style: none; border: 1px solid var(--line-strong); background: var(--bg); }
+.education-layout ol { margin: 0; padding: 10px; list-style: none; border: 1px solid var(--line-strong); background: var(--bg); color: var(--cream); }
 .education-layout li { min-height: 118px; display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-content: center; padding: 22px; border-bottom: 1px solid var(--line); }
 .education-layout li:last-child { border-bottom: 0; }
 .education-layout li > span { color: var(--gold); font-size: 10px; font-weight: 900; }
-.education-layout li b { font-size: 20px; text-transform: uppercase; }
+.education-layout li b { display: block; color: var(--cream); font-size: 20px; line-height: 1.25; text-transform: uppercase; }
 .education-layout li p { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
 
 .contact { width: min(calc(100% - 32px), var(--max)); margin: 110px auto 16px; padding: clamp(80px, 10vw, 145px) clamp(24px, 5vw, 78px); border: 1px solid var(--cream); outline: 1px solid var(--cream); outline-offset: -10px; background: var(--bg); text-align: center; position: relative; overflow: hidden; }
