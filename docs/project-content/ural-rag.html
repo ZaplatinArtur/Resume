@@ -1,0 +1,65 @@
+<article class="case-study case-ural" id="case-ural-rag">
+          <header class="case-hero reveal">
+            <div class="case-number">02</div>
+            <div class="case-title">
+              <p class="eyebrow">УЧЕБНЫЙ ПРОЕКТ · 2026</p>
+              <h3>RAG-система<br />по истории Урала</h3>
+              <p class="case-deck">Воспроизводимый pipeline от загрузки исторических PDF до ответа с источниками и сравнения retrieval-стратегий.</p>
+              <div class="case-links"><a href="https://github.com/ZaplatinArtur/Ural_history_with_RAG" target="_blank" rel="noreferrer">GitHub проекта ↗</a></div>
+            </div>
+            <div class="case-score case-score-ural"><span>ЛУЧШИЙ RETRIEVAL</span><strong>0,82</strong><p>Recall@5 · Hybrid RRF</p></div>
+          </header>
+
+          <div class="brief-grid reveal">
+            <article><span>ЗАДАЧА ПРОЕКТА</span><p>Построить RAG по русскоязычным историческим PDF и сравнить методы поиска на данных, где важны точные даты, фамилии, географические названия и редкие термины.</p></article>
+            <article><span>ЦЕЛЬ ПРОЕКТА</span><p>Выбрать устойчивую retrieval-стратегию по измеримым метрикам, а не по нескольким удачным примерам ответов.</p></article>
+          </div>
+
+          <section class="contribution contribution-ural reveal">
+            <div class="contribution-intro">
+              <p class="eyebrow">МОЙ ЛИЧНЫЙ ВКЛАД</p>
+              <h4>Собрал полный RAG-цикл и систему сравнения методов</h4>
+              <p>Проектировал pipeline целиком: от подготовки корпуса до экспериментов и разбора того, почему отдельные усложнения не дали прироста.</p>
+            </div>
+            <div class="contribution-list">
+              <article><span class="contribution-number">01</span><div><h5>Подготовил корпус исторических документов</h5><div class="tech-tags" aria-label="Технологии"><span>PDF</span><span>CHUNKING</span><span>PYTHON</span></div><p>Извлёк текст из 1 433 PDF-страниц, очистил служебные символы и разрезал материал на 6 300 чанков. Использовал размер чанка 1 200 символов и overlap 200, чтобы не терять смысл на границах фрагментов.</p></div></article>
+              <article><span class="contribution-number">02</span><div><h5>Реализовал несколько retrieval-стратегий</h5><div class="tech-tags" aria-label="Технологии"><span>BM25</span><span>FAISS</span><span>RRF</span></div><p>Построил BM25 для точных совпадений и FAISS с SentenceTransformers для смыслового поиска. Объединил результаты через Reciprocal Rank Fusion, затем отдельно проверил multi-query и reranking.</p></div></article>
+              <article><span class="contribution-number">03</span><div><h5>Связал поиск с генерацией ответа</h5><div class="tech-tags" aria-label="Технологии"><span>OPENROUTER</span><span>RAG</span></div><p>Передавал найденные фрагменты в LLM через OpenRouter, добавил ссылки на источники и отделил retrieval от генерации, чтобы можно было понять, на каком именно этапе возникает ошибка.</p></div></article>
+              <article><span class="contribution-number">04</span><div><h5>Провёл единое сравнение на 25 вопросах</h5><div class="tech-tags" aria-label="Технологии"><span>RAGAS</span><span>MRR</span><span>RECALL@5</span></div><p>Для всех пяти методов использовал одинаковый top_k=5. Считал Precision@5, Recall@5, Hit@5 и MRR, а качество ответов проверял через answer F1, groundedness и выборочную оценку Ragas.</p></div></article>
+            </div>
+          </section>
+
+          <div class="pipeline reveal" aria-label="Архитектура RAG по истории Урала">
+            <span>PDF</span><i>→</i><span>Очистка + chunking</span><i>→</i><span>BM25 + FAISS</span><i>→</i><span>RRF / rerank</span><i>→</i><span>OpenRouter</span><i>→</i><span>Evaluation</span>
+          </div>
+
+          <div class="table-block reveal">
+            <div class="table-intro"><p class="eyebrow">РЕЗУЛЬТАТЫ RETRIEVAL · TOP-5</p><h4>Hybrid RRF оказался самым устойчивым вариантом</h4><p>Он сохранил точность ключевых слов BM25 и добавил смысловые совпадения FAISS. Reranker, наоборот, ухудшил выдачу — этот отрицательный результат я сохранил в выводах.</p></div>
+            <div class="table-wrap" tabindex="0" aria-label="Таблица метрик retrieval">
+              <table>
+                <thead><tr><th>Метод</th><th>Precision@5</th><th>Recall@5</th><th>Hit@5</th><th>MRR</th></tr></thead>
+                <tbody>
+                  <tr><td>BM25</td><td>0,5033</td><td>0,7933</td><td>0,9200</td><td>0,7333</td></tr>
+                  <tr><td>Semantic FAISS</td><td>0,3267</td><td>0,7467</td><td>0,8000</td><td>0,6280</td></tr>
+                  <tr class="best-row"><td>Hybrid RRF <b>BEST</b></td><td>0,4393</td><td>0,8200</td><td>0,9200</td><td>0,7867</td></tr>
+                  <tr><td>Multi-query</td><td>0,4933</td><td>0,6600</td><td>0,7600</td><td>0,6600</td></tr>
+                  <tr><td>Hybrid + reranker</td><td>0,3233</td><td>0,5933</td><td>0,6400</td><td>0,5033</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="problem-grid problem-grid-four reveal">
+            <article><span>НАБЛЮДЕНИЕ</span><h5>BM25 хорошо находил даты и имена</h5><p>Точные сущности важны для исторического корпуса, поэтому лексический поиск нельзя было просто заменить embeddings.</p></article>
+            <article><span>НАБЛЮДЕНИЕ</span><h5>Semantic search расширял смысл</h5><p>FAISS находил перефразированные совпадения, но отдельно уступал BM25 по точности и позиции первого релевантного фрагмента.</p></article>
+            <article><span>НАБЛЮДЕНИЕ</span><h5>Усложнение не гарантирует рост</h5><p>Multi-query и общий reranker снизили часть метрик. Решение — отдельная абляция каждого шага, а не доверие названию метода.</p></article>
+            <article><span>ПРОБЛЕМА</span><h5>Очень мало вычислительных ресурсов</h5><p>Локальной видеокарты не было, поэтому ресурсоёмкие эксперименты запускал только на доступных GPU в Kaggle. Прогоны приходилось заранее планировать и укладывать в ограничения сессий.</p></article>
+          </div>
+
+          <footer class="case-conclusion reveal">
+            <p class="eyebrow">ОБЩИЙ ВЫВОД</p>
+            <p><strong>Hybrid RRF дал лучший Recall@5 0,8200 и MRR 0,7867.</strong> Для исторических текстов точные совпадения и семантический поиск дополняют друг друга, а каждый новый компонент нужно подтверждать экспериментом.</p>
+            <div><strong>1 433</strong><span>обработанные<br />PDF-страницы</span></div>
+            <div><strong>6 300</strong><span>чанков в едином<br />корпусе</span></div>
+          </footer>
+        </article>

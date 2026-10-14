@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111110" />
+    <meta name="description" content="Артур Заплатин — Data Scientist / ML / LLM Engineer. Девять проектов в LLM, компьютерном зрении, retrieval и рекомендательных системах." />
+    <meta property="og:title" content="Артур Заплатин — ML, LLM, Computer Vision" />
+    <meta property="og:description" content="Модели, агенты и поиск. Портфолио проектов с измеримыми результатами." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zaplatinartur.github.io/Resume/" />
+    <meta property="og:image" content="https://zaplatinartur.github.io/Resume/assets/og-monochrome.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Артур Заплатин — Data Scientist / ML / LLM Engineer</title>
+    <link rel="icon" href="./assets/artur-engraving.png" type="image/png" />
+    <link rel="stylesheet" href="./styles.css?v={{STYLE_VERSION}}" />
+    <link rel="stylesheet" href="./desk.css?v={{DESK_VERSION}}" />
+    <link rel="stylesheet" href="./folders.css?v={{FOLDER_STYLE_VERSION}}" />
+  </head>
+  <body class="drafting-table">
+    <a class="skip-link" href="#content">Перейти к содержанию</a>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Артур Заплатин — в начало">АЗ<span> / ИНЖЕНЕРНЫЙ БЛОКНОТ</span></a>
+      <nav class="nav" id="main-nav" aria-label="Основная навигация">
+        <a href="#projects">Проекты</a><a href="#expertise">Стек</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a>
+      </nav>
+      <a class="header-pdf" href="./Artur_Zaplatin_Resume.pdf" target="_blank" rel="noopener">Резюме PDF ↗</a>
+      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" type="button"><span></span><span></span><b class="sr-only">Открыть меню</b></button>
+    </header>
+
+    <main id="content">
+      <section class="hero" id="top">
+        <div class="hero-topline"><span><i class="status-dot" aria-hidden="true"></i> РАБОЧИЙ СТОЛ / DATA SCIENCE · ML · LLM</span><span>МОСКВА · 2026</span></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">ЛИЧНОЕ ДЕЛО / МОДЕЛИ. АГЕНТЫ. ПОИСК.</p>
+            <h1>Артур<br /><span>Заплатин</span></h1>
+            <p class="hero-intro">Превращаю данные<br />в работающие системы.</p>
+            <p class="hero-description">От VLM-агентов и поиска по документам — до компьютерного зрения и рекомендаций. С гипотезами, экспериментами и измеримым результатом.</p>
+            <div class="hero-actions"><a class="button button-light" href="#projects">Исследовать проекты <span>↘</span></a><a class="hero-github" href="https://github.com/ZaplatinArtur" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <div class="hero-paper-footer"><span>РТУ МИРЭА / ФИИТ</span></div>
+          </div>
+          <div class="hero-lab">
+            {{BLUEPRINT}}
+            <figure class="portrait"><img src="./assets/artur-engraving.png" alt="Артур Заплатин — портрет в технике книжной гравюры" /><figcaption>ARTUR ZAPLATIN / ML ENGINEER</figcaption></figure>
+            <a class="floating-note note-projects" href="#projects"><strong>09</strong><span>проектных папок<br />от гипотезы к результату ↘</span></a>
+          </div>
+        </div>
+        {{DRAFTING_TOOLS}}
+        <div class="hero-bottom"><span>PYTHON / PYTORCH / TRANSFORMERS</span><a href="#projects">Разложить проекты <span>↓</span></a></div>
+      </section>
+
+      <div class="desk-index" aria-label="Содержание портфолио"><span>СОДЕРЖАНИЕ ПАПКИ</span><a href="#projects">01 / Проекты</a><a href="#workbench">02 / Проверочный стенд</a><a href="#field-notes">03 / Заметки</a><a href="#expertise">04 / Инструменты</a><span>09 ПАПОК / 2026</span></div>
+
+      <section class="projects section" id="projects">
+        <div class="section-heading reveal"><div><p class="eyebrow">01 / ПРОЕКТНЫЕ ПАПКИ</p><h2>Чертежи<br /><em>работающих идей.</em></h2></div><p>Четыре листа в каждой папке:<br />задача, схема, эксперименты и ошибки.<br />На чертеже можно выбрать любой узел.</p></div>
+        <div class="project-toolbar"><div class="project-filters" role="group" aria-label="Фильтр проектов" hidden><button type="button" data-filter="all" aria-pressed="true">Все <span>09</span></button><button type="button" data-filter="llm" aria-pressed="false">LLM / NLP</button><button type="button" data-filter="vision" aria-pressed="false">Computer Vision</button><button type="button" data-filter="retrieval" aria-pressed="false">Retrieval / RecSys</button></div><button class="motion-toggle" type="button" hidden>Пауза анимации Ⅱ</button><p class="project-count" aria-live="polite">09 проектов</p></div>
+        <div class="project-grid">
+          {{PROJECT_CARDS}}
+        </div>
+      </section>
+
+      <section class="workbench section" id="workbench" aria-labelledby="workbench-title">
+        <div class="section-heading reveal"><div><p class="eyebrow">02 / ПРОВЕРОЧНЫЙ СТЕНД</p><h2 id="workbench-title">Попробуйте<br /><em>на маленьком примере.</em></h2></div><p>Переключайте методы и образцы.<br />Здесь можно увидеть механику решения<br />и сравнить результаты.</p></div>
+        <div class="lab-folder reveal">
+          <div class="lab-tabs" role="tablist" aria-label="Демонстрации проектов" hidden><button role="tab" id="lab-tab-retrieval" aria-selected="true" aria-controls="lab-retrieval" tabindex="0" type="button" data-lab="retrieval">01 / Поиск</button><button role="tab" id="lab-tab-vision" aria-selected="false" aria-controls="lab-vision" tabindex="-1" type="button" data-lab="vision">02 / Зрение</button><button role="tab" id="lab-tab-text" aria-selected="false" aria-controls="lab-text" tabindex="-1" type="button" data-lab="text">03 / Текст</button></div>
+          <section class="lab-panel" id="lab-retrieval" aria-labelledby="lab-tab-retrieval">
+            <div class="lab-source archive-sample"><div class="sample-topline"><span>КОРПУС / ИСТОРИЯ УРАЛА</span><span>1433 PDF-СТРАНИЦЫ</span></div><div class="archive-layout"><svg class="archive-blueprint" viewBox="0 0 200 270" fill="none" role="img" aria-label="Схема: PDF разбивается на чанки, затем индексируется BM25 и FAISS"><g stroke="currentColor" stroke-width="1.1"><path d="M48 25V9h105v124h-16M39 34V18h105v124h-16" opacity=".35"/><rect x="30" y="27" width="105" height="124"/><path d="M44 69h76m-76 10h70m-70 10h76m-76 10h67m-67 10h72m-72 10h76m-76 10h59" opacity=".5"/><rect x="40" y="83" width="86" height="35" stroke="var(--accent)"/><path d="M82 151v21m-5-6 5 6 5-6M82 193v19M47 212h88m-88 0v15m88-15v15M47 250v11h88v-11"/><rect x="31" y="173" width="102" height="20"/><rect x="13" y="227" width="68" height="23"/><rect x="101" y="227" width="68" height="23"/></g><g fill="currentColor"><text x="44" y="51">PDF / TEXT</text><text x="44" y="187">CHUNKING</text><text x="30" y="242">BM25</text><text x="113" y="242">FAISS</text></g><text x="144" y="104" fill="var(--accent)">01</text></svg><div><span class="draft-label">СХЕМА ПОДГОТОВКИ</span><h3>Документ<br />становится<br />контекстом.</h3><ol><li>Извлечь текст</li><li>Очистить и разбить</li><li>Построить два индекса</li><li>Сопоставить выдачу</li></ol></div></div><div class="sample-bottomline"><span>6300 ЧАНКОВ</span><span>1200 СИМВОЛОВ / OVERLAP 200</span></div></div>
+            <div class="lab-result"><p class="eyebrow">ВЫБЕРИТЕ СТРАТЕГИЮ ПОИСКА</p><div class="demo-options" role="group" aria-label="Метод поиска"><button type="button" data-retrieval="bm25" aria-pressed="false">BM25</button><button type="button" data-retrieval="faiss" aria-pressed="false">FAISS</button><button type="button" data-retrieval="rrf" aria-pressed="true">Hybrid RRF</button></div><div class="retrieval-readout" aria-live="polite"><h3 id="retrieval-name">Лексика + смысл</h3><p id="retrieval-description">RRF объединяет точные совпадения BM25 и смысловые совпадения FAISS.</p><div class="readout-metrics"><div><strong id="retrieval-recall">0,8200</strong><span>Recall@5</span></div><div><strong id="retrieval-mrr">0,7867</strong><span>MRR</span></div></div><div class="retrieval-meter" aria-hidden="true"><span style="--recall:82%"></span></div></div><p class="sample-caption">Результаты проекта: 25 вопросов, одинаковый top-k = 5.</p><a class="text-link" href="./cases/ural-rag.html" data-project="ural-rag">Методология и все пять методов ↗</a></div>
+          </section>
+          <section class="lab-panel" id="lab-vision" aria-labelledby="lab-tab-vision">
+            <div class="lab-source vision-sample"><div class="sample-topline"><span>ОБРАЗЕЦ / ВИЗУАЛЬНЫЙ ПОИСК</span><span>01:01</span></div><div class="sample-camera"><svg viewBox="0 0 320 240" fill="none" role="img" aria-label="Иллюстрация выбранного товара"><g stroke="currentColor" stroke-width="1.8"><path d="M24 24h28m-28 0v28m272-28h-28m28 0v28M24 216h28m-28 0v-28m272 28h-28m28 0v-28" opacity=".5"/><g data-fruit="apple"><path d="M160 90c-52-38-85 9-61 68 14 39 41 43 62 32 30 19 66-10 69-55 5-36-34-63-70-45Z"/><path d="M158 93c-2-25 9-41 19-52m-11 21c23-24 49-13 49-13-9 24-35 24-49 13Z"/></g><g data-fruit="pear" hidden><path d="M160 68c-25 0-26 33-35 51-17 28-34 36-27 64 9 34 82 35 108 6 24-26-4-50-18-73-11-19-8-48-28-48Z"/><path d="M160 69c-2-19 8-29 17-35"/></g><g data-fruit="unknown" hidden><path d="M128 44h64v38l30 39v79H98v-79l30-39Z"/><rect x="116" y="139" width="88" height="35"/><path d="M136 155h47m-47 9h32"/></g><path d="M74 210h171" opacity=".4"/></g></svg><span class="camera-cross" aria-hidden="true">+</span></div><div class="demo-options" role="group" aria-label="Выбрать образец товара"><button type="button" data-product="apple" aria-pressed="true">Яблоко</button><button type="button" data-product="pear" aria-pressed="false">Груша</button><button type="button" data-product="unknown" aria-pressed="false">Вне каталога</button></div></div>
+            <div class="lab-result"><p class="eyebrow">ИЗОБРАЖЕНИЕ → КАТАЛОГ</p><h3>Ближайшие<br />кандидаты.</h3><ol class="sample-candidates" aria-live="polite"><li><b>01</b><span>Яблоко Голден</span><em>выбран</em></li><li><b>02</b><span>Яблоко Гала</span><em>кандидат</em></li><li><b>03</b><span>Груша Конференция</span><em>кандидат</em></li></ol><p id="catalog-observation" class="lab-annotation">Похожие товары находятся по визуальному представлению. Дальше — ранжирование и проверка.</p><p class="sample-caption">Иллюстративный каталог и подготовленные результаты. Показывают механику; реальная модель здесь не запускается.</p><a class="text-link" href="./cases/product-search.html" data-project="product-search">Открыть проект поиска товаров ↗</a></div>
+          </section>
+          <section class="lab-panel" id="lab-text" aria-labelledby="lab-tab-text">
+            <div class="lab-source text-sample"><div class="sample-topline"><span>ОБРАЗЕЦ / NLP</span><span>ТЕКСТОВЫЙ ДОКУМЕНТ</span></div><div class="demo-options" role="group" aria-label="Выбрать текст"><button type="button" data-text="request" aria-pressed="true">Обращение</button><button type="button" data-text="article" aria-pressed="false">Статья</button></div><h3 id="text-source-title">Что важно в обращении?</h3><p id="text-source">Вчера я оформил заказ в приложении и выбрал доставку на утро. Оплата прошла, подтверждение пришло, но курьер так и не приехал. В поддержке сначала попросили подождать, а затем перестали отвечать. Мне нужно узнать, когда привезут заказ, или вернуть деньги, если доставка уже невозможна.</p><div class="sample-bottomline"><span>ИСХОДНЫЙ ТЕКСТ</span><span id="text-source-count"></span></div></div>
+            <div class="lab-result"><p class="eyebrow">ОТ ДЛИННОГО ТЕКСТА К ГЛАВНОМУ</p><h3>Сохранить смысл.<br />Убрать лишнее.</h3><button type="button" id="summarize-example" class="button" aria-pressed="false">Показать краткую версию <span>↘</span></button><div class="summary-output" aria-live="polite"><p id="text-summary">Заказ оплачен, доставка не состоялась. Клиент просит сообщить срок доставки или вернуть деньги.</p><div><span id="text-summary-count"></span><span id="text-sentiment">Тональность: негативная</span></div></div><p class="sample-caption">Подготовленные примеры сокращения и тональности. Это иллюстрация задачи, а не ответ работающей модели.</p><a class="text-link" href="./cases/nlp-service.html" data-project="nlp-service">Открыть NLP-проект ↗</a></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="field-notes section" id="field-notes">
+        <div class="notes-heading"><p class="eyebrow">03 / ЗАМЕТКИ НА ПОЛЯХ</p><h2>Что осталось<br /><em>после экспериментов.</em></h2><span class="notes-stamp" aria-hidden="true">ПРОВЕРЕНО<br />ЭКСПЕРИМЕНТОМ</span></div>
+        <div class="field-notes-grid"><article class="field-note reveal"><span>01 / URAL RAG</span><h3>Усложнение<br />не гарантирует рост.</h3><p>Общий reranker снизил Recall@5 с 0,8200 до 0,5933. Сохранил отрицательный результат и выбрал Hybrid RRF.</p><div class="note-plot" aria-label="Recall@5: RRF 0,8200, с reranker 0,5933"><div><span>RRF</span><i style="--note-bar:82%"></i><b>0,82</b></div><div><span>+ rerank</span><i style="--note-bar:59.33%"></i><b>0,59</b></div></div><a href="./cases/ural-rag.html" data-project="ural-rag">Посмотреть эксперимент ↗</a></article><article class="field-note reveal"><span>02 / PRODUCT SEARCH</span><h3>Уметь сказать:<br />«нет в каталоге».</h3><p>Хорошая выдача для известных товаров ещё не решает open-set recognition. Для неизвестных нужны пороги уверенности и калибровка отказа.</p><div class="note-sketch" aria-hidden="true"><span>Фото</span><i>→</i><span>Каталог</span><b>?</b></div><a href="./cases/product-search.html" data-project="product-search">Где система ошибалась ↗</a></article><article class="field-note reveal"><span>03 / VLM AGENT</span><h3>Найти источник.<br />Проверить пользу.</h3><p>Поиск мог возвращать дубли и слабый контекст. Добавил MMR, фильтрацию и контроль того, может ли источник изменить исходный ответ.</p><div class="note-sketch" aria-hidden="true"><span>Поиск</span><i>→</i><span>Проверка</span><b>✓</b></div><a href="./cases/vlm-agent.html" data-project="vlm-agent">Как устроен контроль ↗</a></article></div>
+      </section>
+
+      <section class="experiment section reveal" aria-labelledby="experiment-title">
+        <div class="experiment-copy"><p class="eyebrow">КОНТРОЛЬНЫЙ ЛИСТ / VLM-АГЕНТ</p><h2 id="experiment-title">Что даёт<br /><em>контроль поиска?</em></h2><p>Выберите базовый подход и сравните его с итоговым агентом. Все результаты получены на одних и тех же 274 заданиях.</p><a class="text-link" href="./cases/vlm-agent.html" data-project="vlm-agent">Открыть разбор эксперимента ↗</a></div>
+        <div class="experiment-view">
+          <fieldset class="baseline-options"><legend>С чем сравнить</legend><label><input type="radio" name="baseline" value="page" /><span>Page-RAG</span></label><label><input type="radio" name="baseline" value="visual" /><span>Визуальный RAG</span></label><label><input type="radio" name="baseline" value="agent" checked /><span>Без инструментов</span></label></fieldset>
+          <div class="comparison-chart" role="img" aria-label="Агент без инструментов: 69,7%. Итоговый агент: 91,6%.">
+            <div class="chart-row"><div><span id="baseline-label">Без инструментов</span><strong id="baseline-value">69,7%</strong></div><div class="chart-track"><span id="baseline-bar" style="--bar:69.7%"></span></div><small id="baseline-answers">191 из 274</small></div>
+            <div class="chart-row chart-final"><div><span>Итоговый агент</span><strong>91,6%</strong></div><div class="chart-track"><span style="--bar:91.6%"></span></div><small>251 из 274</small></div>
+          </div>
+          <div class="experiment-delta" aria-live="polite"><strong id="delta-value">+21,9 <span>п.п.</span></strong><p id="delta-caption">60 дополнительных верных ответов</p></div>
+        </div>
+      </section>
+
+      <section class="expertise section" id="expertise">
+        <div class="section-heading reveal"><div><p class="eyebrow">04 / ИНСТРУМЕНТАЛЬНЫЙ ЯЩИК</p><h2>Чем собраны<br /><em>эти системы.</em></h2></div><p>Инструменты связаны с задачами.<br />Выберите направление,<br />чтобы посмотреть стек и практику.</p></div>
+        <div class="toolbox-tabs" role="tablist" aria-label="Направления работы" hidden>{{SKILL_TABS}}</div>
+        <div class="toolbox-panels">{{SKILL_PANELS}}</div>
+        <details class="practice-detail"><summary>Практические навыки подробнее <span aria-hidden="true">+</span></summary><div class="practice-grid">{{PRACTICE}}</div></details>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="about-copy reveal"><p class="eyebrow">05 / ЗА ЧЕРТЕЖАМИ</p><h2>Сначала — вопрос.<br /><em>Потом — эксперимент.</em></h2><p>Я студент 4-го курса РТУ МИРЭА, ФИИТ, и выпускник Летней ML-академии Яндекса. Работаю на стыке машинного обучения, NLP, компьютерного зрения и retrieval.</p><p>Мне интересен весь путь: подготовить данные, собрать модель, разобраться в ошибках и довести решение до сервиса. Даже отрицательный результат полезен, если понятно, почему подход не сработал.</p><div class="working-method"><span>01 / Данные</span><span>02 / Baseline</span><span>03 / Эксперимент</span><span>04 / Сервис</span></div><a class="text-link" href="./Artur_Zaplatin_Resume.pdf" target="_blank" rel="noopener">Весь опыт в PDF ↗</a></div>
+        <div class="education reveal" id="education"><p class="eyebrow">ОБРАЗОВАНИЕ / ОБУЧЕНИЕ</p><ol><li><span>СЕЙЧАС</span><div><h3>РТУ МИРЭА</h3><p>4-й курс · Фундаментальная информатика и информационные технологии</p></div></li><li><span>2026</span><div><h3>Летняя ML-академия Яндекса</h3><p>VLM-агенты · Agentic RAG</p></div></li><li><span>2026</span><div><h3>«Алиса и умные устройства»</h3><p>Студкемп Яндекса · Computer Vision</p></div></li><li><span>2026</span><div><h3>AI Agents Week</h3><p>Яндекс</p></div></li><li><span>2024–25</span><div><h3>Karpov.courses</h3><p>ML Engineer · MLOps · SQL</p></div></li></ol></div>
+      </section>
+
+      <section class="contact section" id="contact"><p class="eyebrow">ЕСТЬ ЗАДАЧА НА СТЫКЕ ML И ПРОДУКТА?</p><h2>Давайте<br /><a href="mailto:arturzaplatin@gmail.com">обсудим <span>↗</span></a></h2><div class="contact-bottom"><div class="email-actions"><a href="mailto:arturzaplatin@gmail.com">arturzaplatin@gmail.com</a><button class="copy-email" type="button" hidden aria-label="Скопировать email">Копировать <span>⧉</span></button><span id="copy-status" class="sr-only" aria-live="polite"></span></div><div class="contact-links"><a href="https://t.me/ArturZaplatin" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://github.com/ZaplatinArtur" target="_blank" rel="noreferrer">GitHub ↗</a><a href="tel:+79538208509">+7 953 820-85-09 ↗</a></div></div></section>
+    </main>
+    <footer class="site-footer"><span>© <span id="year">2026</span> АРТУР ЗАПЛАТИН</span><span>МОСКВА / ENGLISH B1</span><a href="#top">Наверх ↑</a></footer>
+    <dialog id="project-dialog" aria-labelledby="dialog-label"><div class="dialog-topbar"><span id="dialog-label">Разбор проекта</span><div><button type="button" id="previous-project" aria-label="Предыдущий проект">←</button><button type="button" id="next-project" aria-label="Следующий проект">→</button><button type="button" id="close-project" autofocus>Закрыть <span>×</span></button></div></div><div class="dialog-content"></div></dialog>
+    {{PROJECT_TEMPLATES}}
+    <script src="./folders.js?v={{FOLDER_SCRIPT_VERSION}}"></script>
+    <script src="./app.js?v={{SCRIPT_VERSION}}"></script>
+  </body>
+</html>

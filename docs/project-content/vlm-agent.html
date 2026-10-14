@@ -1,0 +1,79 @@
+<article class="case-study case-vlm" id="case-vlm-agent">
+          <header class="case-hero reveal">
+            <div class="case-number">01</div>
+            <div class="case-title">
+              <p class="eyebrow">ML-АКАДЕМИЯ ЯНДЕКСА · 2026</p>
+              <h3>VLM-агент с RAG<br />по турецким учебникам</h3>
+              <p class="case-deck">Агент на базе Qwen 3.5 9B решает школьные задания с изображений и сам определяет, когда обратиться к базе учебников за дополнительным контекстом.</p>
+              <div class="case-links">
+                <a href="https://zaplatinartur.github.io/VLM_agent_turkish_textbook_ML_academy_Yandex/" target="_blank" rel="noreferrer">Исследование ↗</a>
+                <a href="https://github.com/ZaplatinArtur/VLM_agent_turkish_textbook_ML_academy_Yandex" target="_blank" rel="noreferrer">Код ↗</a>
+              </div>
+            </div>
+            <div class="case-score"><span>ИТОГОВАЯ ACCURACY</span><strong>91,6<sup>%</sup></strong><p>251 верный ответ из 274</p></div>
+          </header>
+
+          <div class="brief-grid reveal">
+            <article><span>ЗАДАЧА ПРОЕКТА</span><p>Собрать агента, который обращается к RAG только при необходимости, использует релевантные материалы и не заменяет верный исходный ответ слабым или противоречивым фрагментом.</p></article>
+            <article><span>ЦЕЛЬ ПРОЕКТА</span><p>Проверить, сможет ли управляемый поиск по турецким учебникам повысить качество VLM на школьных заданиях, где одного изображения или общих знаний модели недостаточно.</p></article>
+          </div>
+
+          <section class="contribution reveal">
+            <div class="contribution-intro">
+              <p class="eyebrow">МОЙ ЛИЧНЫЙ ВКЛАД</p>
+              <h4>От базового вызова RAG — к контролируемому агентному поиску</h4>
+              <p>Я отвечал за основу агента и за логику, которая определяет, когда и как найденные материалы могут повлиять на итоговое решение.</p>
+            </div>
+            <div class="contribution-list">
+              <article>
+                <span class="contribution-number">01</span>
+                <div><h5>Собрал агентный цикл работы с RAG</h5><div class="tech-tags" aria-label="Технологии"><span>LANGGRAPH</span><span>RAG TOOL</span><span>PYDANTIC</span></div><p>Реализовал инструмент поиска, который агент вызывает самостоятельно. Найденные чанки возвращаются прямо в контекст решения, после чего модель сопоставляет их с условием задачи и формирует ответ.</p><ul><li>ограничил число обращений к поиску двумя вызовами;</li><li>добавил защиту от повторения одинаковых запросов;</li><li>сохранял запрос, найденные фрагменты, время выполнения и ошибки;</li><li>фиксировал причину завершения, чтобы поведение агента можно было разобрать после эксперимента.</li></ul></div>
+              </article>
+              <article>
+                <span class="contribution-number">02</span>
+                <div><h5>Подключил гибридный поиск и контроль контекста</h5><div class="tech-tags" aria-label="Технологии"><span>FAISS</span><span>E5</span><span>BM25</span><span>FILTERING</span></div><p>Использовал FAISS, E5-эмбеддинги и BM25 для гибридного retrieval. Доработал выдачу так, чтобы агент получал материалы для нужного предмета и класса, а слабые совпадения не попадали в решение.</p><ul><li>добавил фильтрацию по предмету и классу;</li><li>ввёл отсечение фрагментов ниже порога релевантности;</li><li>при слабой выдаче запускал один повторный поиск с переформулированным запросом;</li><li>при конфликте между текстом и изображением оставлял приоритет за исходным условием на изображении.</li></ul></div>
+              </article>
+              <article>
+                <span class="contribution-number">03</span>
+                <div><h5>Добавил дополнительное ранжирование через MMR</h5><div class="tech-tags" aria-label="Технологии"><span>MMR</span><span>TOP-K</span><span>RERANKING</span></div><p>Обычный top-k часто возвращал несколько почти одинаковых страниц. MMR позволил сохранить релевантность, но сделать контекст разнообразнее — это особенно важно для составных школьных задач.</p><ul><li>сравнил разные значения lambda: 0,3 / 0,5 / 0,7;</li><li>проверил порядок выдачи при fetch_k=20 и итоговом top-5;</li><li>добился того, чтобы в контекст попадали дополняющие, а не дублирующие друг друга фрагменты.</li></ul></div>
+              </article>
+            </div>
+          </section>
+
+          <div class="pipeline reveal" aria-label="Логика итогового пайплайна">
+            <span>Изображение</span><i>→</i><span>Исходный ответ VLM</span><i>→</i><span>Решение о поиске</span><i>→</i><span>FAISS + фильтры + MMR</span><i>→</i><span>Проверка источника</span>
+          </div>
+
+          <section class="experiments reveal">
+            <div class="experiments-copy">
+              <p class="eyebrow">ДИНАМИКА КАЧЕСТВА</p>
+              <h4>Каждый слой проверяли на одном наборе из 274 задач</h4>
+              <p>Так можно сравнивать подходы напрямую и не приписывать рост случайному изменению выборки.</p>
+            </div>
+            <div class="metric-list">
+              <div><span>Обычный page-RAG</span><i style="--value:51.5%"></i><strong>141 / 274</strong><b>51,5%</b></div>
+              <div><span>Визуальный RAG</span><i style="--value:62.4%"></i><strong>171 / 274</strong><b>62,4%</b></div>
+              <div><span>Агент без инструментов</span><i style="--value:69.7%"></i><strong>191 / 274</strong><b>69,7%</b></div>
+              <div class="metric-winner"><span>Итоговый пайплайн</span><i style="--value:91.6%"></i><strong>251 / 274</strong><b>91,6%</b></div>
+            </div>
+          </section>
+
+<!-- web-experiment:start -->
+<aside class="web-experiment reveal">
+      <div><p class="eyebrow">ОТДЕЛЬНЫЙ ЭКСПЕРИМЕНТ · 8 300 ЗАДАНИЙ</p><h4>Поиск помогает,<br />когда он уместен.</h4></div>
+      <div><p>На отдельной выборке модель без инструментов показала accuracy <strong>84,1%</strong>, а агент с веб-поиском — <strong>81,8%</strong>. Эти результаты относятся к другому набору задач и не смешиваются с оценкой на 274 заданиях.</p><p>Принудительный поиск может ухудшать ответ. Для устойчивой работы нужны маршрутизация по типам задач, проверка релевантности и контроль решений.</p></div>
+    </aside>
+<!-- web-experiment:end -->
+          <div class="problem-grid reveal">
+            <article><span>ПРОБЛЕМА</span><h5>Слабый retrieval мог испортить верный ответ</h5><p>Если источник не подтверждал решение достаточно уверенно, система сохраняла исходный ответ модели.</p></article>
+            <article><span>ПРОБЛЕМА</span><h5>Поиск возвращал дубли и тратил вызовы</h5><p>Повторные запросы блокировались, число обращений ограничивалось, а MMR разводил похожие фрагменты.</p></article>
+            <article><span>ПРОБЛЕМА</span><h5>Текст мог расходиться с изображением</h5><p>В спорной ситуации главным источником оставалось исходное условие задачи, а не найденная страница.</p></article>
+          </div>
+
+          <footer class="case-conclusion reveal">
+            <p class="eyebrow">ОБЩИЙ ВЫВОД</p>
+            <p>Рост дал не сам факт подключения RAG, а <strong>строгая работа с поиском</strong>. Пайплайн сохраняет исходный ответ и меняет его только тогда, когда надёжный источник действительно подтверждает другое решение.</p>
+            <div><strong>+60</strong><span>верных ответов к агенту<br />без инструментов</span></div>
+            <div><strong>+110</strong><span>верных ответов<br />к обычному page-RAG</span></div>
+          </footer>
+        </article>
